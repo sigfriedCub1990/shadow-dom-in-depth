@@ -1,41 +1,43 @@
 # Shadow DOM
 
-> Heads Up! It's all about the V1 Spec.
+> Atención! Todo es acerca de V1 Spec.
 
-This document is more yours than it is mine. It makes me happy that it has been able to help people. To do better I moved this document from [the original gist](https://gist.github.com/praveenpuglia/0832da687ed5a5d7a0907046c9ef1813) to this repo so multiple people can work together and improve it.
+Este documento es más tuyo que mío. Me hace feliz que haya podido ayudar a las personas. Para hacerlo mejor moví este document de [the original gist](https://gist.github.com/praveenpuglia/0832da687ed5a5d7a0907046c9ef1813) a este repositorio para que varias personas puedan colaborarr y mejorarlo.
 
-If you like what you find here, please create issues with ideas as to what more can we add to this repository. Like examples, images, graphical representations for the terminologies, etc. via issues. Let's make everyone love the platform :).
+Si te gusta lo que encuentras aquí, por favor crea un `issue` con ideas para saber qué otras cosas podemos agregar a este repositorio. Como ejemeplos, imágenes, representaciones gráficas para las terminologías, etc. Vía `issues`.  Hagamos que todos amen la plataforma :). 
 
-## What's New?
+## Qué hay de nuevo?
 
-### Translations
-Chinese - https://github.com/Tencent/omi/blob/master/tutorial/shadow-dom-in-depth.cn.md - Thanks [@eyea](https://github.com/eyea).
+### Traducciones
+Inglés (original) - https://github.com/praveenpuglia/shadow-dom-in-depth/blob/master/README.md
+Chino - https://github.com/Tencent/omi/blob/master/tutorial/shadow-dom-in-depth.cn.md - Thanks [@eyea](https://github.com/eyea).
 
-* Examples. I am putting examples that'll help everyone understand it better, step by step. [Check them out.](./examples)
+* Ejemplos. Estoy poniendo ejemplos que ayudarán a todo el mundo a comprender mejor, paso por paso [Míralos.](./examples)
 
-Let me know if a "Everything you need to know about Custom Elements" document like this one would help you. If so, I'll put one up 👨‍💻.
+Déjame saber si el documento "Todo lo que necesitas saber sobre Elementos Personalizados" como este te ayudaría. Si es así, pondré uno arriba 👨‍💻.
 
-## Browser Support
+## Soporte para navegadores
 
-* Chrome : Works
-* Firefox : Works
-* Opera : Works
-* Safari : Works but few things are buggy.
-* Edge : Under Consideration.
+* Chrome : Funciona
+* Firefox : Funciona
+* Opera : Funciona
+* Safari : Funciona pero con algunos defectos.
+* Edge : Bajo consideración.
 
-Comprehensive browser support info can be found here: https://caniuse.com/#feat=shadowdomv1.
+Información comprensiva acerca del soporte de los navegadores puede encontrase en: https://caniuse.com/#feat=shadowdomv1.
 
-## Introduction
+## Introducción
 
-In a nutshell, Shadow DOM enables local scoping for HTML & CSS.
+En resúmen, `Shadow DOM` permite ámbitos locales para HTML & CSS.
 
-> Shadow DOM fixes CSS and DOM. It introduces scoped styles to the web platform. Without tools or naming conventions, you can bundle CSS with markup, hide implementation details, and author self-contained components in vanilla JavaScript. - https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom
+> `Shadow DOM` arregla CSS y DOM. Introduce ámbitos locales para los estilos en la plataforma web. Sin herramientas o convenciones de nombres, puedes empacar CSS con HTML, esconder detalles de implementación, y crear componentes auto-contenidos en `Vanilla Javascrip`. - https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom
 
+Es como su pequenho mundo que raramente se ve afectado o se ve afectado por cambios externos. 
 It's like its own little world which hardly affects or gets affected by the outside world.
 
-It's what you write as a **component author** to abstract away the implementation details of your component. It can also decide what to do with the user-provided **light DOM**.
+Es lo que implementas como un **component author** para abstraer los detalles de la implementación de tu componente. También puede decidir qué hacer con el **light DOM** preveído por el usuario.
 
-## Terminologies
+## Terminologías
 
 **- DOM :** What we get over the wire (or wireless :|) is a string of text. To render something on the screen, the browsers have to parse that string of text and convert it into a data model so it can understand things better. It also preserves the hierarchy from the original string by putting those parsed objects in a tree structure.
 
@@ -564,13 +566,13 @@ window.customElements.define('child-element', ChildElement);
 * To find the elements that went into a slot - [`slot.assignedNodes()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSlotElement/assignedNodes);
 * To find out which slot an light DOM element is assigned to - [`element.assignedSlot`](https://developer.mozilla.org/en-US/docs/Web/API/Element/assignedSlot);
 
-## Resources
+## Referencias
 
 * http://robdodson.me/shadow-dom-css-cheat-sheet/
 * https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom
 * https://drafts.csswg.org/css-scoping/
 
-## More Queries & Bugs
+## Más consultas & problemas
 
 * https://stackoverflow.com/questions/44564366/inheritance-inside-a-shadow-dom-slot
 * https://github.com/w3c/csswg-drafts/issues/1535
