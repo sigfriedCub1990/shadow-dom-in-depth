@@ -32,22 +32,21 @@ En resúmen, `Shadow DOM` permite ámbitos locales para HTML & CSS.
 
 > `Shadow DOM` arregla CSS y DOM. Introduce ámbitos locales para los estilos en la plataforma web. Sin herramientas o convenciones de nombres, puedes empacar CSS con HTML, esconder detalles de implementación, y crear componentes auto-contenidos en `Vanilla Javascrip`. - https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom
 
-Es como su pequenho mundo que raramente se ve afectado o se ve afectado por cambios externos. 
-It's like its own little world which hardly affects or gets affected by the outside world.
+Es como su pequenho mundo que raramente se ve afectado o se afecta por cambios externos.
 
-Es lo que implementas como un **component author** para abstraer los detalles de la implementación de tu componente. También puede decidir qué hacer con el **light DOM** preveído por el usuario.
+Es lo que implementas como un **component author** para abstraer los detalles de la implementación de tu componente. También puede decidir qué hacer con el **light DOM** proveído por el usuario.
 
 ## Terminologías
 
-**- DOM :** What we get over the wire (or wireless :|) is a string of text. To render something on the screen, the browsers have to parse that string of text and convert it into a data model so it can understand things better. It also preserves the hierarchy from the original string by putting those parsed objects in a tree structure.
+**-DOM :** Lo que descargamos es una cadena de texto. Para renderizar algo en la pantalla, el navegador tiene que parsear esa cadena de texto y convertirla en un modelo de datos para así poder entenderla. También preserva la jerarquía de la cadena orgina poniendo los objetos parseados en una estructura de árbol.
 
-We need to do that to make the machines understand our documents better. This tree like data model of our document is called Document Object Model.
+Tenemos que hacer esto para que las máquinas interpreten mejor los documentos. Este modelo de datos en forma de árbol es llamado Document Object Model.
 
-**- Component Author :** The person who creates a component and defines how it works. Generally the person who writes a lot of shadow DOM code. Example - Browser vendors create the `input` element.
+**- Component Author :** La persona que crea un componente y define cómo trabaja. Generalmente la persona que escribe mucho código `shadow DOM`. Example - Los que hacen navegadores crearon el elemento `input`.
 
-**- Component User :** Well, they use components built by authors. They can pass in light DOM and set attributes and properties on your component. They can even extend the internals of a component if they want. Example - we, the users who use the `input` element.
+**- Component User :** Los que usan los componentes creadores por los autores. Pueden pasar `light DOM` y poner atributos y propiedades en tu componente. Incluso pueden extender el funcionamiento del componente si así lo desean. Ejemplo - nosotros, los usuarios que usamos el elemento `input`.
 
-**- Shadow Root:** It's what gets attached to an element to give that element its shadow DOM. Technically it's a non-element node, a special kind of [_DocumentFragment_](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment).
+**- Shadow Root:** Es lo que se adjunta a un elemento para definir su `shadow DOM`. Tecnicamente es un nodo no-elemento, un caso especial de [_DocumentFragment_](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment).
 
 ```html
 <custom-picture>
@@ -59,16 +58,15 @@ We need to do that to make the machines understand our documents better. This tr
     <!--LIGHT DOM-->
 </custom-picture>
 ```
+A través del documento he puesto el `shadow root` dentro de esos extranhos caracteres ASCII. Esto pondrá más énfasis en pensar cómo ellos son realmente `Document Fragments` que tienen un muro a su alrededor.
 
-Throughout the document, I have put shadow root inside those weird ASCII boundaries. This will put more emphasis on thinking how they are actually document fragments that have a wall around them.
+**- Shadow Host:** El elemento al que se adjunta el `shadow root`. Un `host` puede acceder a su `shadow root` mediante la propiedad `.shadowRoot`.
 
-**- Shadow Host:** The element to which the shadow root gets attached. A host can access its shadow root via a property on itself: `.shadowRoot`.
+**- Shadow Tree:** Todos los elementos que van dentro del `Shadow Root`, que tienen un ámbito aislado al del mundo exterior es llamado `Shadow Tree`.
 
-**- Shadow Tree :** All the elements that go into the Shadow Root, which is scoped from outside world, is called Shadow Tree.
+> Los elementos en el `Shadow Tree` **no** son descendientes del `Shadow Host` en general (incluido para el propósito de los Selectores como el descendiente combinado) - Spec
 
-> The elements in a shadow tree are **not** descendants of the shadow host in general (including for the purposes of Selectors like the descendant combinator) - Spec
-
-**- Light DOM:** - The set of DOM elements we can sandwich between the opening and closing tags. - The DOM that lives outside shadow DOM. - The DOM, the _user_ of your element writes. - The DOM that is the actual children of your element.
+**- Light DOM:** - El conjunto de elementos del DOM que pueden estar entre las etiquetas de apertura y cierre. - El DOM que reside fuera del `Shadow DOM`. - El DOM, la parte que escribe el usuario. - El DOM que es el hijo actual de tu elemento.
 
 ```html
 <custom-picture>
